@@ -19,7 +19,7 @@ function uniqueElement(arr){
     return result
 }
 
-// console.log(uniqueElement([1,1,2,22,3,5,1,2]))
+console.log(uniqueElement([1,1,2,22,3,5,1,2]))
 
 //2.find the duplicate elements in an array
 
@@ -40,7 +40,7 @@ function duplicateElement(arr){
     }
     return result
 }
-// console.log(duplicateElement([1,4,3,2,5,6,7,1,2,3,4,5]))
+console.log(duplicateElement([1,4,3,2,5,6,7,1,2,3,4,5]))
 
 //3.Return the most frequency element ia an array
 
@@ -63,7 +63,7 @@ function mostFrequencyElement(arr){
     return maxFreqElem
 }
 
-// console.log(mostFrequencyElement([1,2,3,4,5,6,7,8,1,1,1,1,2,2,3,3]))
+console.log(mostFrequencyElement([1,2,3,4,5,6,7,8,1,1,1,1,2,2,3,3]))
 
 //4.Find the unique pair of elements(inside an array) whose sum is equal to a target k
 
@@ -102,7 +102,7 @@ function largestTwoNumberSum(arr){
       return (firstMax+secondMax)
 }
 
-// console.log(largestTwoNumberSum([4,8,5,3,6,1,2,3,9]))
+console.log(largestTwoNumberSum([4,8,5,3,6,1,2,3,9]))
 
 
 //6.Take an input and check wheather the input is an integer or not
@@ -115,7 +115,7 @@ function checkInt(input){
     return result
 }
 
-// console.log(checkInt(112))
+console.log(checkInt(112))
 
 
 //7.Take a number and if number is multiple of 3 print "Foo",if multiple of 5 "Bar" and if number is multiple of 3 & 5 print "FooBar"
