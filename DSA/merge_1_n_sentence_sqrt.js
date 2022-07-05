@@ -8,11 +8,11 @@
     {name:"d",value:999},
     {name:"b",value:111}
  ];
-//result :[
-//  {name:"c",value:444},
-//  {name:"d",value:999},
-//  {name:"c",value:444},
-//  {name:"d",value:999}   
+// result :[
+//     { name: 'a', value: 123 },
+//     { name: 'b', value: 111 },
+//     { name: 'c', value: 444 },
+//     { name: 'd', value: 999 }   
 // ];
 
 function mergeArrays(arr1,arr2,result=[]){
@@ -84,6 +84,98 @@ function maximumWord(sentences){
 }
 console.log(maximumWord(["alice and bob love leetcode", "i think so too", "this is great thanks very much"]))
 
+//3.find square root of a number
+
+//recursion approach
+
+// function squareRoot(number,left,right){
+
+//       let mid = (left+right)/2
+//       let mul = mid*mid;
+
+//       if(mul === number || (Math.abs(mul-number)<0.00001)){
+//         return mid;
+//      }
+//      else if(mul > number){
+//         return squareRoot(number,left,mid)
+//      }
+//      else{
+//         return squareRoot(number,mid,right)
+//      }
+// }
+
+//Iterative approach
+
+function squareRoot(number,left,right){
+
+    while(true){
+        let mid = (left+right)/2
+        let mul = mid*mid
+
+        if(mul === number || (Math.abs(mul-number)<0.00001)){
+            return mid;
+       }
+       else if(mul > number){
+         right = mid
+       }
+       else{
+        left = mid
+       }
+    }
+}
+
+
+function findSqrt(number){
+
+    let found = false;
+    let i = 1;
+
+    while( found === false){
+        if(i*i === number){
+            found = true;
+            console.log(i)
+        }
+        else if(i*i > number){
+            var res = squareRoot(number,i-1,i)
+            console.log( +res.toFixed(5))
+            found = true;
+        }
+        i++
+    }
+}
+
+findSqrt(25)
+
+//4.Missing number in an unsorted array
+//array having number 1 to n contiguously
+// 1,2,3,4,5,7,8,9 missing 6
+// 1,2,4,5,6,7,8,9 missing 3
+//missing number 1 to n
+
+function missingNumber1n(arr){
+
+    let maxNumber = Math.max(...arr)
+    let totalSum = 0;
+
+    for(let i=0;i<arr.length;i++){
+        totalSum +=arr[i];
+    }
+    return (maxNumber*(maxNumber+1)/2) - totalSum 
+}
+
+//start from k,k+1,k+2,k+3,k+4,k+5,k+6,k+7,k+8........
+
+function missingNumber(arr=[]){
+
+    let min = Math.min(...arr)
+
+    for(let i=0;i<arr.length;i++){
+        arr[i]=arr[i]-(min-1)
+    }
+    let missNumber1n = missingNumber1n(arr)
+    return missNumber1n+min-1
+}
+console.log(missingNumber([8,9,10,11,12,13,15]))
 
 
 
