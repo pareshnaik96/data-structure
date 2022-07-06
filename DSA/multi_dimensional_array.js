@@ -60,7 +60,7 @@ function generateString(number){
     let finalStr ='', currIndex = 0;
 
     while(currIndex < number){
-        finalStr +=alphabet[currIndex%26];
+        finalStr +=alphabet[ currIndex % 26 ];
         currIndex++
     }
     return finalStr;   
