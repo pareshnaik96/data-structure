@@ -11,7 +11,7 @@
     return "Yes"
  }
 
- console.log(basicPrime(3))
+//  console.log(basicPrime(3))
 
 //optimise approach
 
@@ -30,7 +30,7 @@ function optimisedPrime(num){
     }
     return "Yes"
 }
-console.log(optimisedPrime(5))
+// console.log(optimisedPrime(5))
 
 
 //2.Second largest frequent number
@@ -60,5 +60,5 @@ function secFreqNumber(arr){
         }
     }
 }
-const result = secFreqNumber([1,1,1,1,1,1,2,2,2,2,2,5,5,5,5,5,7,7,7,7,7,7,7,7,7,])
-console.log(result)
+// const result = secFreqNumber([1,1,1,1,1,1,2,2,2,2,2,5,5,5,5,5,7,7,7,7,7,7,7,7,7,])
+// console.log(result)
