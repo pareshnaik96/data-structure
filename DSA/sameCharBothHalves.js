@@ -1,5 +1,5 @@
 function checkSameHalves(str) {
-    if(str.length%2 != 0) return "NO"
+    if( str.length % 2 != 0 ) return "NO"
 
     let map = {}
 
