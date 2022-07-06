@@ -1,16 +1,16 @@
 //swap two number without using third variable
-// let a = 5
-// let b = 10 
-// a = a+b
-// b = a-b
-// a = a-b
-// console.log(a,",",b)
+let a = 5
+let b = 10 
+a = a+b
+b = a-b
+a = a-b
+console.log(a,",",b)
 
-// b = [a,a=b][0]
-// console.log(a,b)
-var a = 5
-var b = 10 
-[a,b] = [b,a]
+b = [a,a=b][0]
+console.log(a,b)
+// var a = 5
+// var b = 10 
+// [a,b] = [b,a]
 
 // console.log(a,b)
 
