@@ -71,3 +71,6 @@ const arr = [6,3,4,6,1,7,3,9,2,8]
 quickSort(arr,0,arr.length-1)
 console.log(arr)
 
+
+//Insertion sort
+
