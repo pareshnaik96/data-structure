@@ -1,5 +1,5 @@
 /*To store the data in structured form is called dataSructure.
-➡ 1. linear DS - Array,string,stack, queue, linkedList etc...
+➡ 1. linear DS - Array, string, stack, queue, linkedList etc...
 ➡ 2. Non-linear - tree, graph etc
 ➡ 3. userDefined - j.s-object, j.s- class..
 
@@ -15,164 +15,164 @@ Properties :-
 ➡In this there is no any indexing concept (we are not able to access directly).
 */
 
-class Node{
-    constructor(data, next=null){
-        this.data=data;
-        this.next=next;
+class Node {
+    constructor(data, next = null) {
+        this.data = data;
+        this.next = next;
     }
 }
 
-class LinkedList{
-    constructor(){
-        this.firstNode=null;
-        this.lastNode=null;
+class LinkedList {
+    constructor() {
+        this.firstNode = null;
+        this.lastNode = null;
     }
 
-    insertInFrontOfList(data){
+    insertInFrontOfList(data) {
 
         //node is created;
         //does not linked with any list
         const node = new Node(data);
 
         //if list is empty
-        if(!this.firstNode){
-            this.firstNode=node;
-            this.lastNode=node;
+        if (!this.firstNode) {
+            this.firstNode = node;
+            this.lastNode = node;
         }
-        else{
+        else {
             const temp = this.firstNode;
-            this.firstNode=node;
-            node.next=temp;
+            this.firstNode = node;
+            node.next = temp;
         }
     }
 
-    insertInLastOfList(data){
+    insertInLastOfList(data) {
         const node = new Node(data);
-        if(!this.firstNode){
-            this.firstNode=node;
+        if (!this.firstNode) {
+            this.firstNode = node;
             this.lastNode = node;
-        }else{
+        } else {
             this.lastNode.next = node;
             this.lastNode = node;
         }
     }
 
-    prinList(){
-        let curr= this.firstNode;
-        while(curr){
-            console.log(curr);
-            curr= curr.next;
+    prinList() {
+        let curr = this.firstNode;
+        while (curr) {
+            console.log(curr.data);
+            curr = curr.next;
         }
     }
 
     //genralised Function
-    insertAfterKthPosition(data,k){
+    insertAfterKthPosition(data, k) {
 
-        let count=1;
+        let count = 1;
         let curr = this.firstNode;
-        while(curr && count==k){
-            curr=curr.next;
+        while (curr && count == k) {
+            curr = curr.next;
             count++
         }
         //console.log(curr);
-        if(!curr && count !==k){
+        if (!curr && count !== k) {
             console.log("invalid position");
             throw Error("Invalid position")
-        }else if(!curr && count===k){
+        } else if (!curr && count === k) {
             this.insertInLastOfList(data);
-        }else{
-            const node =new Node(data);
+        } else {
+            const node = new Node(data);
             node.next = curr.next;
-            curr.next=node;
+            curr.next = node;
         }
     }
 
-    deleteFromFront(){
-        if(!this.firstNode){
+    deleteFromFront() {
+        if (!this.firstNode) {
             throw Error("We can't delete from empaty list")
         }
 
-        let temp= this.firstNode;
+        let temp = this.firstNode;
         this.firstNode = this.firstNode.next;
         temp.next = null
-        if(!this.firstNode){
-            this.lastNode=null;
+        if (!this.firstNode) {
+            this.lastNode = null;
         }
     }
-    deleteFromLast(){
+    deleteFromLast() {
         let curr = this.firstNode;
-        while(curr.next !== this.lastNode){
-            curr=curr.next;
+        while (curr.next !== this.lastNode) {
+            curr = curr.next;
         }
-        console.log(curr,this.lastNode)
-        curr.next=null;
+        console.log(curr, this.lastNode)
+        curr.next = null;
         this.lastNode = curr;
     }
-    deleteFromkthPosition(k){
-        let count=1;
-        if(k===1){
+    deleteFromkthPosition(k) {
+        let count = 1;
+        if (k === 1) {
             this.deleteFromFront();
         }
-        while(curr && count !==k-1){
+        while (curr && count !== k - 1) {
             curr = curr.next;
             count++
-        }if(!curr){
+        } if (!curr) {
             console.log("invalid position");
             throw Error("Invald position")
-        }else{
+        } else {
             let targetNode = curr.next;
             curr.next = targetNode.next;
             targetNode.next = null
 
             //if we remove last node
-            if(!curr.next){
-                this.lastNode=curr;
+            if (!curr.next) {
+                this.lastNode = curr;
             }
         }
     }
 
-    reverseList(){
+    reverseList() {
 
         let curr = null;
-        while(this.firstNode){
-            if(!curr){
+        while (this.firstNode) {
+            if (!curr) {
                 this.lastNode = this.firstNode;
             }
-            let nextNode=this.firstNode.next;
-            this.firstNode.next =curr;
-            curr =this.firstNode;
+            let nextNode = this.firstNode.next;
+            this.firstNode.next = curr;
+            curr = this.firstNode;
             this.firstNode = nextNode
         }
-        this.firstNode=curr;
+        this.firstNode = curr;
     }
 
-    loopStartNodeHashingTechnique(){
+    loopStartNodeHashingTechnique() {
         let isLoopStarted = false;
         let set = new Set();
-        
+
         let curr = this.firstNode;
-        while(curr && !isLoopStarted){
-            if(set.has(curr)){
-                isLoopStarted=true;
-            }else{
+        while (curr && !isLoopStarted) {
+            if (set.has(curr)) {
+                isLoopStarted = true;
+            } else {
                 set.add(curr);
-                curr=curr.next
+                curr = curr.next
             }
         }
-        if(isLoopStarted){
+        if (isLoopStarted) {
             return curr;
         }
         return null;
     }
 
-    loopDeletionWithSlowPtr(){
-        let slowPtr=this.firstNode;
+    loopDeletionWithSlowPtr() {
+        let slowPtr = this.firstNode;
         let fastPtr = slowPtr.next;
 
-        while(slowPtr && fastPtr && fastPtr.next){
-            slowPtr=slowPtr.next;
+        while (slowPtr && fastPtr && fastPtr.next) {
+            slowPtr = slowPtr.next;
             fastPtr = fastPtr.next.next;
-            if(slowPtr === fastPtr){
+            if (slowPtr === fastPtr) {
                 return true
             }
         }
@@ -184,9 +184,9 @@ const list = new LinkedList();
 list.insertInFrontOfList(10);
 list.insertInFrontOfList(9);
 list.insertInFrontOfList(8);
-list.insertInLastOfList(15);
-list.insertInLastOfList(65);
-list.insertInLastOfList(25)
+// list.insertInLastOfList(15);
+// list.insertInLastOfList(65);
+// list.insertInLastOfList(25)
 list.prinList();
 
 // console.log("===========")
@@ -198,12 +198,12 @@ list.prinList();
 // list.deleteFromFront();
 // list.deleteFromLast();
 // list.deleteFromkthPosition(3);
-//list.reverseList()
-list.prinList()
+// list.reverseList()
+// list.prinList()
 
-list.lastNode.next =list.firstNode.next.next.next;
-list.insertInFrontOfList(1);
-console.log(list.loopDeletionWithSlowPtr())
+// list.lastNode.next = list.firstNode.next.next.next;
+// list.insertInFrontOfList(1);
+// console.log(list.loopDeletionWithSlowPtr())
 /**
  * what we have learned till now
  * insertion in front

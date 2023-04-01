@@ -138,3 +138,15 @@ console.log("=================")
 dlist.printList()
 
 
+// Time complexity
+// Insertion :-
+// beginning - O(1)
+// end -O(1)
+// middle -O(n)
+
+// Deletion :-
+// beginning - O(1)
+// end -O(1)
+// middle- O(n)
+
+
